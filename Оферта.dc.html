@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#09090B;color:#c1c1c6;font-family:'Golos Text',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+::selection{background:#1415D5;color:#fff}
+a{color:#8f8ffb;text-decoration:none}
+a:hover{color:#b3b3ff}
+</style>
+<template id="__bundler_thumbnail" data-bg-color="#09090B">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#09090B"/><rect x="470" y="250" width="260" height="330" rx="16" fill="#131319" stroke="#1415D5" stroke-width="3"/><rect x="510" y="300" width="150" height="14" rx="4" fill="#6E6EF7"/><rect x="510" y="340" width="180" height="9" rx="3" fill="#ffffff" opacity=".5"/><rect x="510" y="362" width="160" height="9" rx="3" fill="#ffffff" opacity=".4"/><rect x="510" y="384" width="180" height="9" rx="3" fill="#ffffff" opacity=".4"/></svg>
+</template>
+</helmet>
+
+<div style="min-height:100vh;padding:clamp(28px,5vw,64px) clamp(18px,4vw,32px)">
+  <div style="max-width:820px;margin:0 auto">
+
+    <a href="Бизнес-разведка.dc.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;color:#8f8ffb;margin-bottom:36px">← На главную</a>
+
+    <div style="display:flex;align-items:center;margin-bottom:16px">
+      <img src="assets/scout-logo.png" alt="Бизнес-клуб Scout" style="height:38px;width:auto;display:block"/>
+    </div>
+
+    <h1 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(1.8rem,4.4vw,2.7rem);line-height:1.08;text-transform:uppercase;color:#F4F4F5;margin:0 0 10px">Публичная оферта</h1>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7b7b82;margin:0 0 40px">Договор о предоставлении доступа к платному телеграм-каналу «Скаут». Редакция от 13 июля 2026 г.</p>
+
+    <div style="background:#111116;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:clamp(20px,3vw,32px);margin-bottom:36px">
+      <p style="margin:0;font-size:15px;color:#9A9A9D">Настоящий документ является официальным предложением (публичной офертой) физического лица Тупикова Артёма Дмитриевича (далее — «Исполнитель») заключить договор на условиях, изложенных ниже. Оплата подписки означает полное и безоговорочное принятие (акцепт) этих условий.</p>
+    </div>
+
+    <sc-for list="{{ sections }}" as="s" hint-placeholder-count="8">
+      <section style="margin-bottom:34px">
+        <h2 style="font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(1.15rem,2.4vw,1.5rem);text-transform:uppercase;letter-spacing:.02em;color:#F4F4F5;margin:0 0 14px">{{ s.h }}</h2>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ s.items }}" as="p" hint-placeholder-count="3">
+            <p style="margin:0;font-size:15.5px;color:#c1c1c6">{{ p }}</p>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+
+    <section style="margin-top:48px;border-top:1px solid rgba(255,255,255,.1);padding-top:28px">
+      <h2 style="font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(1.15rem,2.4vw,1.5rem);text-transform:uppercase;letter-spacing:.02em;color:#F4F4F5;margin:0 0 16px">Реквизиты Исполнителя</h2>
+      <div style="font-size:15px;line-height:1.9;color:#9A9A9D">
+        <div>Тупиков Артём Дмитриевич</div>
+        <div style="font-family:'IBM Plex Mono',monospace;color:#c1c1c6">+7 916 472 6580</div>
+        <div><a href="mailto:ip_artemtupikov19@bk.ru">ip_artemtupikov19@bk.ru</a></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      sections: [
+        { h: '1. Термины', items: [
+          '«Канал» — закрытый телеграм-канал «Скаут», в котором Исполнитель публикует авторские разборы растущих стартапов с цифрами и планом запуска.',
+          '«Подписчик» — дееспособное физическое лицо, оформившее платную подписку и получившее доступ к Каналу.',
+          '«Tribute» — сервис приёма платежей и управления подписками внутри Telegram, через который производится оплата и отмена подписки.'
+        ] },
+        { h: '2. Предмет договора', items: [
+          'Исполнитель предоставляет Подписчику доступ к материалам Канала на срок действия оплаченной подписки, а Подписчик оплачивает этот доступ на условиях оферты.',
+          'В течение календарного месяца в Канале публикуется не менее 15 новых разборов. Каждый разбор построен по единой структуре из семи пунктов: описание стартапа, причины роста, модель монетизации, применимость в России, размер рынка, вариант MVP, бюджет и план запуска.',
+          'Материалы Канала носят информационно-аналитический характер, не являются индивидуальной инвестиционной рекомендацией и не гарантируют получение дохода.'
+        ] },
+        { h: '3. Стоимость и порядок оплаты', items: [
+          'Стоимость подписки составляет 490 ₽ в месяц.',
+          'Оплата производится через сервис Tribute внутри Telegram. Подписка продлевается автоматически каждый расчётный период до момента её отмены Подписчиком.',
+          'Доступ к Каналу открывается сразу после подтверждения оплаты сервисом Tribute.'
+        ] },
+        { h: '4. Отмена подписки и возврат', items: [
+          'Подписчик может отменить подписку в любой момент в сервисе Tribute — там же, где она была подключена. После отмены доступ сохраняется до конца уже оплаченного периода, дальнейшие списания не производятся.',
+          'Команда /stop в боте не останавливает подписку и не отменяет автопродление — отмена выполняется только через Tribute.',
+          'Если материалы Канала не подошли, Подписчик вправе запросить возврат полной стоимости за первый оплаченный месяц, написав на почту Исполнителя. Возврат производится в течение 10 рабочих дней тем же способом, которым была произведена оплата.'
+        ] },
+        { h: '5. Права и обязанности', items: [
+          'Исполнитель обязуется обеспечивать доступ к Каналу и публиковать материалы в заявленном объёме.',
+          'Подписчик обязуется не передавать доступ третьим лицам, не копировать и не распространять материалы Канала без письменного согласия Исполнителя. Все материалы являются объектом авторского права Исполнителя.',
+          'Исполнитель вправе приостановить доступ Подписчику, нарушившему условия оферты, без возврата оплаты.'
+        ] },
+        { h: '6. Ответственность', items: [
+          'Исполнитель не несёт ответственности за решения, принятые Подписчиком на основе материалов Канала, и за их финансовые результаты.',
+          'Исполнитель не отвечает за перебои в работе Telegram и сервиса Tribute, вызванные причинами вне его контроля.'
+        ] },
+        { h: '7. Заключительные положения', items: [
+          'Договор действует с момента акцепта оферты и до окончания оплаченного периода.',
+          'Исполнитель вправе изменять условия оферты, публикуя новую редакцию. Изменения вступают в силу с момента публикации.',
+          'Все споры решаются путём переговоров, а при недостижении согласия — в соответствии с законодательством Российской Федерации.'
+        ] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
